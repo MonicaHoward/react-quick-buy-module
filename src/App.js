@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import Shop from './Shop';
+
 class App extends Component {
   render() {
-    var courses = [
+    var inventory = [
         {name: 'Air Jordan 33 "Future Flight"\n', price: 175},
         {name: 'Air Jordan 10 "Tinker"\n', price: 190},
         {name: 'Air Jordan 10', price: 300},
@@ -17,7 +19,7 @@ class App extends Component {
     ];
     return (
       <div className="App">
-
+        <Shop items={inventory}/>
       </div>
     );
   }
