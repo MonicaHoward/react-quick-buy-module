@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Shop extends Component {
     cartTotal(price){
-        this.setState({total: this.setState.total + price})
+        this.setState({total: this.state.total + price})
     }
 
     constructor(props){
@@ -35,10 +35,25 @@ class Shop extends Component {
 }
 
 class Item extends Component {
+
+    click(){
+        var active = !this.state.active;
+        this.setState({active: active});
+        this.props.cartTotal(active ? this.props.price : -this.props.price)
+    }
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+            active: false
+        };
+        this.click = this.click.bind(this);
+    }
     render(){
         return(
             <div>
-
+                <p onClick={this.click}>{this.props.name} {this.props.price}</p>
             </div>
         )
     }
